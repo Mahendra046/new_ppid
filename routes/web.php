@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Depan\HomeController;
 use App\Http\Controllers\Depan\KontakController;
+use App\Http\Controllers\Depan\MenuController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,3 +34,5 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
 Route::get('/', [HomeController::class, 'index']);
 Route::get('beranda', [HomeController::class, 'index']);
 Route::get('kontak', [KontakController::class, 'kontak']);
+Route::get('menu/{menu}', [MenuController::class, 'menu']);
+Route::get('menu{menu}/{submenu}', [MenuController::class, 'menu']);
