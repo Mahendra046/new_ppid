@@ -1,32 +1,6 @@
-<x-depan title="Beranda | Fespati Ketapang">
+<x-depan title="Beranda | PPID BALIKPAPAN">
     <!-- ======= Hero Section ======= -->
-    <section id="hero" class="hero" style="
-    
-    ">
-
-        {{-- <div class="info d-flex align-items-center">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-6 text-center">
-                        <br><br>
-                        <h5 class="text-light" data-aos="fade-down">Selamat Datang Di Situs Resmi</h5>
-                        <h4 class="text-light" data-aos="fade-down"><span>FEDERASI SENI PANAHAN TRADISIONAL
-                                INDONESIA</span></h4>
-                        <h3 class="text-light" data-aos="fade-down" style="color:var(--color-primary);">
-                            <span>(FESPATI)</span>
-                        </h3>
-                        <h3 class="" data-aos="fade-down" style="color:var(--color-primary);"><span>KABUPATEN
-                                KETAPANG</span></h3>
-                        <br>
-                        <h4 class="text-light" data-aos="fade-up"><span><i>-UPGRADE YOUR PERFORMANCE-</i></span></h4>
-                        <br>
-                        <a data-aos="fade-up" data-aos-delay="200" href="{{ url('kontak') }}" style=""
-                            class="btn-get-started">Ayo
-                            Bergabung</a>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
+    <section id="hero" class="hero" style="">
 
         <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
 
