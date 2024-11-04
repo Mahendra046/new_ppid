@@ -39,7 +39,11 @@
                     <ul>
                         <li><a href="tel:+62895372200063"><i class="bi bi-telephone"></i> +62 895 3722 00063</a></li>
                         <li><a href="https://wa.me/62895372200063?text=Isi Pesan"><i class="bi bi-whatsapp"></i> +62 895 3722 00063</a></li>
-                        <li><a href="https://wa.me/62895372200063?text=Isi Pesan"><i class="bi bi-envelope"></i> admin@fespatiketapang.org</a></li>
+                        <li>
+                            <a href="https://mailto:adminkota@balikpapan.go.id">
+                              <i class="bi bi-envelope"></i> adminkota@balikpapan.go.id
+                            </a>
+                          </li>
                     </ul>
                 </div><!-- End footer links column-->
 
