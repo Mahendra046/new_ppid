@@ -30,7 +30,7 @@
                         </h2>
 
                         <div class="content">
-                            <p>{!!nl2br( $konten->deskripsi)!!}</p>
+                            <iframe src="{{ url("public/$konten->file") }}" frameborder="0" style="width: 100%; height: 800px;"></iframe>
                         </div><!-- End post content -->
 
                         <div class="meta-bottom">

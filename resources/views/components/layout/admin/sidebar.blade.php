@@ -21,6 +21,7 @@
                     <x-layout.sidebar.menu-item url="admin/konten-teks" label="Konten Teks" icon="ti-write" />
                 </ul>
             </li>
+            <x-layout.sidebar.menu-item url="admin/user" label="Admin" icon="ti-user" />
         </ul>
     </div>
 </div>

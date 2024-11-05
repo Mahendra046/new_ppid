@@ -26,7 +26,7 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 // Admin
 Route::prefix('admin')
-// ->middleware('auth:admin')
+->middleware('auth:user')
 ->group(function () {
     // dashboard
     Route::get('dashboard', [DashboardController::class, 'index']);
@@ -40,3 +40,5 @@ Route::get('kontak', [KontakController::class, 'kontak']);
 Route::get('menu/{menu}', [MenuController::class, 'menu']);
 Route::get('menu/{menu}/{submenu}', [MenuController::class, 'submenu']);
 Route::get('konten/teks/{konten}', [KontenController::class, 'teks']);
+Route::get('konten/image/{konten}', [KontenController::class, 'image']);
+Route::get('konten/pdf/{konten}', [KontenController::class, 'pdf']);

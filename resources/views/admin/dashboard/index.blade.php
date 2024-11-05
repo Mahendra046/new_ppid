@@ -15,54 +15,41 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-3 col-sm-6">
+        <div class="col-lg-4 col-sm-6">
             <div class="card">
                 <div class="stat-widget-one card-body">
                     <div class="stat-icon d-inline-block">
                         <i class="ti-pie-chart text-success"></i>
                     </div>
                     <div class="stat-content d-inline-block">
-                        <div class="stat-text">Club</div>
-                        <div class="stat-digit">{{$list_club->count()}}</div>
+                        <div class="stat-text">Konten Teks</div>
+                        <div class="stat-digit">{{$konten_teks}}</div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-sm-6">
+        <div class="col-lg-4 col-sm-6">
             <div class="card">
                 <div class="stat-widget-one card-body">
                     <div class="stat-icon d-inline-block">
                         <i class="ti-user text-primary border-primary"></i>
                     </div>
                     <div class="stat-content d-inline-block">
-                        <div class="stat-text">Anggota</div>
-                        <div class="stat-digit">{{$list_anggota->count()}}</div>
+                        <div class="stat-text">Konten Image</div>
+                        <div class="stat-digit">{{$konten_image}}</div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-sm-6">
+        <div class="col-lg-4 col-sm-6">
             <div class="card">
                 <div class="stat-widget-one card-body">
                     <div class="stat-icon d-inline-block">
                         <i class="ti-layout-grid2 text-pink border-pink"></i>
                     </div>
                     <div class="stat-content d-inline-block">
-                        <div class="stat-text">Berita</div>
-                        <div class="stat-digit">{{$list_berita->count()}}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-            <div class="card">
-                <div class="stat-widget-one card-body">
-                    <div class="stat-icon d-inline-block">
-                        <i class="ti-image text-danger border-danger"></i>
-                    </div>
-                    <div class="stat-content d-inline-block">
-                        <div class="stat-text">Galeri</div>
-                        <div class="stat-digit">{{$list_galeri->count()}}</div>
+                        <div class="stat-text">Konten PDF</div>
+                        <div class="stat-digit">{{$konten_pdf}}</div>
                     </div>
                 </div>
             </div>
@@ -71,7 +58,7 @@
     <div class="row">
     </div>
     <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
                     <div class="year-calendar"></div>
@@ -79,44 +66,6 @@
             </div>
             <!-- /# card -->
         </div>
-        <div class="col-lg-8">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Daftar Event</h4>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table student-data-table m-t-20">
-                            <thead>
-                                <tr>
-                                    <th>Nama Event</th>
-                                    <th>Mulai</th>
-                                    <th>Sampai</th>
-                                    <th>thumbnail</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($list_event as $event)
-                                <tr>
-                                    <td>
-                                        {{$event->nama_event}}
-                                    </td>
-                                    <td>
-                                        {{$event->mulai}}
-                                    </td>
-                                    <td>
-                                        <span>{{$event->selesai}}</span>
-                                    </td>
-                                    <td>
-                                        <img src="{{url("public/$event->foto")}}" style="width:10rem;" alt="">
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     </div>
 </x-app>

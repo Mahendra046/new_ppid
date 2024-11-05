@@ -8,14 +8,16 @@ use Illuminate\Http\Request;
 
 class KontenController extends Controller
 {
-    public function image()
+    public function image($konten)
     {
-
+        $data['konten'] = Konten::find($konten);
+        return view('depan.konten.image',$data);
     }
 
-    public function pdf()
+    public function pdf($konten)
     {
-
+        $data['konten'] = Konten::find($konten);
+        return view('depan.konten.pdf',$data);
     }
 
     public function teks($konten)

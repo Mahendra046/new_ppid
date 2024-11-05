@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'ketua',
+        'guard' => 'user',
         'passwords' => 'users',
     ],
 
@@ -37,13 +37,9 @@ return [
 
     'guards' => [
 
-        'admin' => [
+        'user' => [
             'driver' => 'session',
-            'provider' => 'admin',
-        ],
-        'ketua' => [
-            'driver' => 'session',
-            'provider' => 'ketua',
+            'provider' => 'user',
         ],
     ],
 
@@ -66,15 +62,10 @@ return [
 
     'providers' => [
 
-        'admin' => [
+        'user' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Admin::class,
+            'model' => App\Models\User::class,
         ],
-        'ketua' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\MasterData\KetuaClub::class,
-        ],
-
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

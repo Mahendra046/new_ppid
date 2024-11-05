@@ -14,7 +14,7 @@
                         <div class="modal fade" id="basicModal">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
-                                    <form action="{{ url('admin/admin') }}" method="post" enctype="multipart/form-data">
+                                    <form action="{{ url('admin/user') }}" method="post" enctype="multipart/form-data">
                                         @csrf
                                         <div class="modal-header" style="background: #3b4268">
                                             <h5 class="modal-title text-white">Tambah Data Admin</h5>
@@ -33,23 +33,15 @@
                                                 @enderror
                                             </div>
                                             <div class="form-group">
+                                                <label for="" class="control-label">Username</label>
+                                                <input type="text" name="username" class="form-control">
+                                            </div>
+                                            <div class="form-group">
                                                 <label for="" class="control-label">Email</label>
                                                 <input type="text" name="email" class="form-control form-control-sm @error('email') is-invalid @enderror">
                                                 @error('email')
                                                     <div class="alert alert-danger">{{ $message }}</div>
                                                 @enderror
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="" class="control-label">Level</label>
-                                                <select name="level" class="form-control" id="">
-                                                    <option value="">--Pilih--</option>
-                                                    <option value="operasional">Operasional</option>
-                                                    <option value="umum">Umum</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="" class="control-label">No.Hp</label>
-                                                <input type="text" name="no_hp" class="form-control">
                                             </div>
                                             <div class="form-group">
                                                 <label for="" class="control-label">Password</label>
@@ -78,10 +70,9 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Aksi</th>
-                                        <th>Nama Admin</th>
+                                        <th>Nama</th>
+                                        <th>Username</th>
                                         <th>Email</th>
-                                        <th>Level</th>
-                                        <th>Password</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -90,10 +81,6 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <a href="{{ url('admin', $admin->id) }}" class="btn btn"
-                                                        style="background: rgb(13, 186, 195)">
-                                                        <i class="fa fa-info" style="color: black"></i>
-                                                    </a>
                                                     <a href="" class="btn btn-warning" data-toggle="modal"
                                                         data-target="#edit{{ $admin->id }}">
                                                         <i class="fa fa-edit"></i>
@@ -102,15 +89,14 @@
                                                 </div>
                                             </td>
                                             <td>{{ $admin->nama }}</td>
+                                            <td>{{ $admin->username }}</td>
                                             <td>{{ $admin->email }}</td>
-                                            <td>{{ $admin->level }}</td>
-                                            <td>{{ $admin->password }}</td>
                                         </tr>
                                         {{-- Modal Edit Start --}}
                                         <div class="modal fade" id="edit{{ $admin->id }}">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
-                                                    <form action="{{ url('admin/admin', $admin->id) }}" method="post"
+                                                    <form action="{{ url('admin/user', $admin->id) }}" method="post"
                                                         enctype="multipart/form-data">
                                                         @csrf
                                                         @method('put')
@@ -129,8 +115,8 @@
                                                                     class="form-control" value="{{ $admin->nama }}">
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="" class="control-label"></label>
-                                                                <input type="text" name="no_hp" class="form-control" value="{{$admin->no_hp}}">
+                                                                <label for="" class="control-label">Username</label>
+                                                                <input type="text" name="username" class="form-control" value="{{$admin->username}}">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for=""
@@ -139,13 +125,12 @@
                                                                     class="form-control" value="{{ $admin->email }}">
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="" class="control-label">Level</label>
-                                                                <select name="level" class="form-control" id="">
-                                                                    <option value="operasional">operasional</option>
-                                                                    <option value="umum">umum</option>
-                                                                </select>
+                                                                <label for="" class="control-label">Password</label>
+                                                                <input type="password" name="password" class="form-control form-control-sm @error('password') is-invalid @enderror">
+                                                                @error('password')
+                                                                    <div class="alert alert-danger">{{ $message }}</div>
+                                                                @enderror
                                                             </div>
-
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"

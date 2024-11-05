@@ -1,83 +1,107 @@
 <!DOCTYPE html>
-<html lang="en" class="h-100">
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Login SiFtPetang</title>
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ url('public/focus') }}/images/FESPATI KETAPANG.png">
-    <link href="{{ url('public/focus') }}/css/style.css" rel="stylesheet">
-
-</head>
-
-<body>
-    <div class="container-fluid h-100">
-        <div class="row justify-content-center h-100 align-items-center">
-            <div class="col-md-4">
-                <div class="authincation-content">
-                    <div class="row no-gutters">
-                        <div class="col-xl-12">
-                            <div class="auth-form">
-                                <a href="{{url('beranda')}}" class="brand-logo mb-4"
-                                style="display:flex; justify-content:center;">
-                                <img src="{{ url('public/focus') }}/images/FESPATI KETAPANG.png"
-                                style="max-width:30px; margin-right:4px;">
-                                <img src="{{ url('public/focus') }}/images/fespatifontblack.png" alt=""
-                                style="max-width:200px">
-                            </a>
-                            <x-Layout.utils.notif />
-                            <form action="{{ url('login') }}" method="post">
-                                    @csrf
-                                    <div class="form-group">
-                                        <label><strong>Email</strong></label>
-                                        <input type="email" class="form-control" name="email" placeholder="email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label><strong>Password</strong></label>
-                                        <input type="password" class="form-control" name="password"
-                                            placeholder="Password">
-                                    </div>
-                                    <div class="text-center">
-                                        <button type="submit" class="btn btn-block text-white" style="background: #258f99;">Log Masuk</button>
-                                    </div>
-                                </form>
-                                <div class="new-account mt-3">
-                                    <p>Tidak Memiliki Akun? <a class="" href="{{url('register')}}" style="color:#258f99;">Daftar Sekarang</a></p>
-                                </div>
-                                <div class="card-footer text-center py-3">
-                                    <div class="small"><a
-                                            href="https://wa.me/62895372200063?text=Halo%20Admin%20saya%20lupa%20password,%20bisakah%20saya%20minta%20reset%20Password%20dengan%20email">Lupa
-                                            Password? Hubungi Admin</a></div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* Reset style */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
         body {
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            background: url('../fespati/public/focus/images/login2.jpg');
+            height: 100vh;
+            background: linear-gradient(to bottom, rgba(17, 203, 250, 0.879), rgba(6, 67, 221, 0.967)), 
+                        url('public/Up/assets/img/img-01.jpg') no-repeat center center / cover;
+            color: #fff;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0);
+            padding: 30px;
+            padding-top: 11%;
+            border-radius: 10px;
+            width: 30%;
+            text-align: center;
+        }
+
+        .login-container img {
+            width: 125px;
+            margin-bottom: -1rem;
+        }
+
+        h2 {
+            margin-top: 0;
+            font-weight: 800;
+            margin-bottom: 30px;
+            font-size: 24px;
+            color: #ffffff;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 16px 10px 16px 40px;
+            border-radius: 25px;
+            border: 1px solid #ddd;
+            outline: none;
+            font-weight: 800;
+        }
+
+        .input-group .icon {
+            position: absolute;
+            top: 17px;
+            left: 20px;
+            color: #666;
+        }
+
+        .login-button {
+            display: block;
+            width: 100%;
+            padding: 20px;
+            background-color: #333;
+            border: none;
+            border-radius: 25px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .login-button:hover {
+            background: linear-gradient(to left, rgba(17, 203, 250, 0.879), rgba(6, 67, 221, 0.967))
         }
     </style>
+</head>
+<body>
 
-    <!--**********************************
-        Scripts
-    ***********************************-->
-    <!-- Required vendors -->
-    <script src="./vendor/global/global.min.js"></script>
-    <script src="./js/quixnav-init.js"></script>
-    <script src="./js/custom.min.js"></script>
+<div class="login-container">
+    <img src="{{ url('public/focus/images/logo.png') }}" alt="Logo">
+    <h2>Login Admin</h2>
+    <form action="{{ url('login') }}" method="POST">
+        @csrf
+        <div class="input-group">
+            <i class="fas fa-user icon"></i>
+            <input type="text" name="username" placeholder="Username" required>
+        </div>
+        <div class="input-group">
+            <i class="fas fa-lock icon"></i>
+            <input type="password" name="password" placeholder="Password" required>
+        </div>
+        <button type="submit" class="login-button">Login</button>
+    </form>
+</div>
+
 </body>
-
 </html>

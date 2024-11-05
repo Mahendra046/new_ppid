@@ -1,7 +1,7 @@
 <x-depan title="Kontak | Fespati Ketapang">
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs d-flex align-items-center"
-        style="background-image: url('../public/Up/assets/img/balikpapan-view.jpg');">
+        style="background-image: url('../../public/Up/assets/img/balikpapan-view.jpg');">
         <div class="container position-relative d-flex flex-column" data-aos="fade">
 
             <h2>{{ $submenu->judul }}</h2>
