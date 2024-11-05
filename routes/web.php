@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Depan\HomeController;
 use App\Http\Controllers\Depan\KontakController;
+use App\Http\Controllers\Depan\KontenController;
 use App\Http\Controllers\Depan\MenuController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,7 +25,9 @@ Route::post('login', [AuthController::class, 'loginProcess']);
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 // Admin
-Route::prefix('admin')->middleware('auth:admin')->group(function () {
+Route::prefix('admin')
+// ->middleware('auth:admin')
+->group(function () {
     // dashboard
     Route::get('dashboard', [DashboardController::class, 'index']);
    
@@ -35,4 +38,5 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('beranda', [HomeController::class, 'index']);
 Route::get('kontak', [KontakController::class, 'kontak']);
 Route::get('menu/{menu}', [MenuController::class, 'menu']);
-Route::get('menu{menu}/{submenu}', [MenuController::class, 'menu']);
+Route::get('menu/{menu}/{submenu}', [MenuController::class, 'submenu']);
+Route::get('konten/teks/{konten}', [KontenController::class, 'teks']);

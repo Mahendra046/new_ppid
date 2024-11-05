@@ -13,20 +13,16 @@ class AuthController extends Controller
     }
 
     function loginProcess(Request $request){
-        $credentials = $request->only('email','password');
+        $credentials = $request->only('username','password');
 
-        if (Auth::guard('admin')->attempt($credentials)) {
+        if (Auth::guard('user')->attempt($credentials)) {
             return redirect('admin/dashboard')->with('success','Selamat Datang AdminFes');
-
-        }else if(Auth::guard('ketua')->attempt($credentials)) {
-            return redirect('ketua/dashboard')->with('success','Login Berhasil');
         } return back()->with('danger','Login Gagal');
     }
 
     function logout(Request $request)
     {
-        Auth::guard('admin')->logout();
-        Auth::guard('ketua')->logout();
+        Auth::guard('user')->logout();
 
         $request->session()->invalidate();
 

@@ -1,4 +1,4 @@
-<x-depan title="Berita-Detail | Fespati Ketapang">
+<x-depan>
         <!-- ======= Breadcrumbs ======= -->
         <div class="breadcrumbs d-flex align-items-center"
             style="background-image: url('../../public/Up/assets/img/berita/background4.jpg');">

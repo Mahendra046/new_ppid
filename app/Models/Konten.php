@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -70,5 +71,10 @@ class Konten extends Model
     public function menu()
     {
         return $this->belongsTo(Menu::class, 'id_menu');
+    }
+
+    public function getTanggalAttribute($value)
+    {
+        return Carbon::parse($value)->translatedFormat('d F Y'); // Format tanggal
     }
 }

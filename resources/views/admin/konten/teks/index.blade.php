@@ -118,6 +118,7 @@
                                                                 <div class="mb-3 col-12">
                                                                     <label for="id_induk" class="form-label">Menu</label>
                                                                         <input type="text" class="form-control" value="{{ $teks->menu->judul }}" readonly>
+                                                                        <input type="hidden" name="id_menu" value="{{ $teks->menu->id }}">
                                                                     <small class="form-text text-muted">Pilih menu
                                                                         untuk konten.</small>
                                                                 </div>

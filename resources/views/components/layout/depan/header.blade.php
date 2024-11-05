@@ -36,7 +36,7 @@
                             <ul>
                                 @foreach($item->submenus as $submenu)
                                     <x-layout.depan.header.menu-item 
-                                        :url="url('/' . $item->id . '/' . $submenu->id)" 
+                                        :url="url('menu/' . $item->id . '/' . $submenu->id)" 
                                         :label="$submenu->judul" 
                                         class="{{ checkRouteActive('/' . $item->id . '/' . $submenu->id) }}" />
                                 @endforeach
@@ -45,17 +45,8 @@
                     </li>
                 @endforeach
 
-                <a href="{{ url('kontak') }}" class="btn-get-started"
-                    style="font-family: var(--font-primary);
-                font-weight: 500;
-                font-size: 12px;
-                letter-spacing: 1px;
-                display: inline-block;
-                padding: 12px 30px;
-                border-radius: 50px;
-                margin: 6px;
-                color: #fff;
-                background: var(--color-primary);">Kontak</a>
+                <x-layout.depan.header.menu-item url="kontak" label="Kontak"
+                class="{{ checkRouteActive('kontak') }}" />
 
 
             </ul>
