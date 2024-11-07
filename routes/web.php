@@ -6,6 +6,8 @@ use App\Http\Controllers\Depan\HomeController;
 use App\Http\Controllers\Depan\KontakController;
 use App\Http\Controllers\Depan\KontenController;
 use App\Http\Controllers\Depan\MenuController;
+use App\Http\Controllers\Depan\PermohonanInformasiController;
+use App\Models\PermohonanInformasi;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,3 +44,4 @@ Route::get('menu/{menu}/{submenu}', [MenuController::class, 'submenu']);
 Route::get('konten/teks/{konten}', [KontenController::class, 'teks']);
 Route::get('konten/image/{konten}', [KontenController::class, 'image']);
 Route::get('konten/pdf/{konten}', [KontenController::class, 'pdf']);
+Route::post('permohonan',[PermohonanInformasiController::class, 'store'])->name('permohonan.store');

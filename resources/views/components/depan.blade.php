@@ -42,8 +42,13 @@
 <body>
     {{-- Header --}}
     <x-layout.depan.header />
+    <div class="row">
+        <div class="container">
+            <x-Layout.utils.notifdepan />
+        </div>
+        {{ $slot }}
+    </div>
     {{-- end header --}}
-    {{ $slot }}
     <!-- ======= Footer ======= -->
     <x-layout.depan.footer />
     <!-- End Footer -->

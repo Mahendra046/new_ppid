@@ -8,7 +8,7 @@
     }
 @endphp
 
-<header id="header" class="header d-flex align-items-center overlay-black bg-light" style="padding: 0.5rem 1rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+<header id="header" class="header d-flex align-items-center overlay-black bg-light" style="padding: 1rem 1rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
         <a href="{{ url('beranda') }}" class="logo d-flex align-items-center">

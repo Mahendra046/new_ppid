@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,8 +20,8 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(to bottom, rgba(17, 203, 250, 0.879), rgba(6, 67, 221, 0.967)), 
-                        url('public/Up/assets/img/img-01.jpg') no-repeat center center / cover;
+            background: linear-gradient(to bottom, rgba(17, 203, 250, 0.879), rgba(6, 67, 221, 0.967)),
+                url('public/Up/assets/img/img-01.jpg') no-repeat center center / cover;
             color: #fff;
         }
 
@@ -65,6 +66,15 @@
             top: 17px;
             left: 20px;
             color: #666;
+            transition: color 0.3s, transform 0.6s;
+            /* Transisi halus */
+        }
+
+        .input-group:focus-within .icon,
+        .input-group input:not(:placeholder-shown)~.icon {
+            color: #4cccf4;
+            transform: translateX(-3px);
+            /* Warna berubah */
         }
 
         .login-button {
@@ -84,24 +94,26 @@
         }
     </style>
 </head>
+
 <body>
 
-<div class="login-container">
-    <img src="{{ url('public/focus/images/logo.png') }}" alt="Logo">
-    <h2>Login Admin</h2>
-    <form action="{{ url('login') }}" method="POST">
-        @csrf
-        <div class="input-group">
-            <i class="fas fa-user icon"></i>
-            <input type="text" name="username" placeholder="Username" required>
-        </div>
-        <div class="input-group">
-            <i class="fas fa-lock icon"></i>
-            <input type="password" name="password" placeholder="Password" required>
-        </div>
-        <button type="submit" class="login-button">Login</button>
-    </form>
-</div>
+    <div class="login-container">
+        <img src="{{ url('public/focus/images/logo.png') }}" alt="Logo">
+        <h2>Login Admin</h2>
+        <form action="{{ url('login') }}" method="POST">
+            @csrf
+            <div class="input-group">
+                <i class="fas fa-user icon"></i>
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock icon"></i>
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="login-button">Login</button>
+        </form>
+    </div>
 
 </body>
+
 </html>
