@@ -7,6 +7,7 @@ use App\Http\Controllers\Depan\KontakController;
 use App\Http\Controllers\Depan\KontenController;
 use App\Http\Controllers\Depan\MenuController;
 use App\Http\Controllers\Depan\PermohonanInformasiController;
+use App\Http\Controllers\Depan\PermohonanKeberatanController;
 use App\Models\PermohonanInformasi;
 use Illuminate\Support\Facades\Route;
 
@@ -45,3 +46,5 @@ Route::get('konten/teks/{konten}', [KontenController::class, 'teks']);
 Route::get('konten/image/{konten}', [KontenController::class, 'image']);
 Route::get('konten/pdf/{konten}', [KontenController::class, 'pdf']);
 Route::post('permohonan',[PermohonanInformasiController::class, 'store'])->name('permohonan.store');
+Route::post('keberatan',[PermohonanKeberatanController::class, 'store'])->name('keberatan.store');
+Route::post('/permohonan/cari', [PermohonanInformasiController::class, 'cariPermohonan'])->name('permohonan.cari');

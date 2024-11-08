@@ -57,7 +57,7 @@
                         </a>
                     </div>
                     <div class="col-lg-3 col-md-3 mb-5">
-                        <a href="#">
+                        <a href="#btn3" id="btn3">
                             <div class="info-item d-flex flex-column justify-content-center align-items-center">
                                 <img src="{{ url('public') }}/Up/assets/img/layanan/client4.png" alt=""
                                     class="img-fluid" style="width: 100%; height: 100%; object-fit: cover;">
@@ -67,7 +67,7 @@
                 </div>
                 {{-- inputan --}}
 
-                <form id="form1" action="{{ route('permohonan.store') }}" method="POST">
+                <form id="form1" class="form" action="{{ route('permohonan.store') }}" method="POST" style="display: none;">
                     @csrf
                     <div class="section-header mt-5">
                         <h2>FORM PERMOHONAN INFORMASI</h2>
@@ -96,11 +96,13 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="alamat_pemohon">Alamat Pemohon:</label>
-                            <input class="form-control" type="text" id="alamat_pemohon" name="alamat_pemohon" required>
+                            <input class="form-control" type="text" id="alamat_pemohon" name="alamat_pemohon"
+                                required>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="tanggal_permohonan">Tanggal Permohonan:</label>
-                            <input class="form-control" type="date" id="tanggal_permohonan" name="tanggal_permohonan" required>
+                            <input class="form-control" type="date" id="tanggal_permohonan"
+                                name="tanggal_permohonan" required>
                         </div>
                     </div>
                     <div class="row">
@@ -123,17 +125,75 @@
                 </form>
 
                 <div id="form2" class="form" style="display: none;">
-                    <h3>Form Kategori 2</h3>
-                    <input type="text" placeholder="Input 1 Kategori 2">
-                    <input type="text" placeholder="Input 2 Kategori 2">
-                    <input type="text" placeholder="Input 3 Kategori 2">
+                    <div class="section-header mt-5">
+                        <h2>FORM KEBERATAN</h2>
+                        <p>Form untuk mengajukan permohonan Informasi kepada PPID Kota Balikpapan</p>
+                    </div>
+                
+                    <form action="{{ route('keberatan.store') }}" method="POST">
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="nama_pemohon">Nama Pemohon:</label>
+                                <input class="form-control" type="text" id="nama_pemohon" name="nama_pemohon" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="lampiran">NIK:</label>
+                                <input class="form-control" type="text" id="lampiran" name="lampiran" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="no_telepon">No Telepon:</label>
+                                <input class="form-control" type="text" id="no_telepon" name="no_telepon" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="email_pemohon">Email Pemohon:</label>
+                                <input class="form-control" type="email" id="email_pemohon" name="email_pemohon" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="alamat_pemohon">Alamat Pemohon:</label>
+                                <input class="form-control" type="text" id="alamat_pemohon" name="alamat_pemohon" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="tanggal_keberatan">Tanggal Keberatan:</label>
+                                <input class="form-control" type="date" id="tanggal_keberatan" name="tanggal_keberatan" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <label for="alasan_keberatan">Alasan Keberatan:</label>
+                                <textarea class="form-control" id="alasan_keberatan" name="alasan_keberatan" required></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <center>
+                                <div class="col-md-4">
+                                    <button type="submit" class="btn btn-primary col-12">Kirim Keberatan</button>
+                                </div>
+                            </center>
+                        </div>
+                    </form>
                 </div>
 
                 <div id="form3" class="form" style="display: none;">
-                    <h3>Form Kategori 3</h3>
-                    <input type="text" placeholder="Input 1 Kategori 3">
-                    <input type="text" placeholder="Input 2 Kategori 3">
-                    <input type="text" placeholder="Input 3 Kategori 3">
+                    <div class="section-header mt-5">
+                        <h2>LACAK PERMOHONAN</h2>
+                        <p>Form untuk mengajukan permohonan Informasi kepada PPID Kota Balikpapan</p>
+                    </div>
+                
+                    <form action="{{ route('permohonan.cari') }}" method="POST">
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="lampiran">NIK:</label>
+                                <input class="form-control" type="text" id="lampiran" name="lampiran" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Cari</button>
+                    </form>
                 </div>
                 {{-- end inputan --}}
             </div>
@@ -184,7 +244,6 @@
             inset: 0;
         }
     </style>
-
     <script>
         document.getElementById('btn1').addEventListener('click', function() {
             toggleForm('form1');
@@ -214,5 +273,6 @@
                 formElement.style.display = 'none';
             }
         }
+
     </script>
 </x-depan>

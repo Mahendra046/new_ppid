@@ -3,61 +3,36 @@
 namespace App\Http\Controllers\Admin\Permohonan;
 
 use App\Http\Controllers\Controller;
+use App\Models\PermohonanKeberatan;
 use Illuminate\Http\Request;
 
 class KeberatanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $data['list_permohonan'] = PermohonanKeberatan::all();
+        return view('admin.permohonan-keberatan.index',$data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
-        //
+        $permohonan = PermohonanKeberatan::find($id);
+        return view('admin.permohonan-keberatan.edit',compact('permohonan'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-        //
+        $permohonan = PermohonanKeberatan::find($id);
+        $permohonan->status_permohonan = $request->status_permohonan;
+        $permohonan->save();
+        return back()->with('success','permohonan '.$request->status_permohonan);
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
+    
     public function destroy(string $id)
     {
         //

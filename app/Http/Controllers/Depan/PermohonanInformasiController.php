@@ -25,6 +25,20 @@ class PermohonanInformasiController extends Controller
         $permohonan->tracking_code = 'TRK-' . strtoupper(Str::random(8));
         $permohonan->save();
 
-        return redirect()->back()->with('success', 'Permohonan berhasil disimpan. Simpan no traking permohonan anda: '. $permohonan->tracking_code);
+        return redirect()->back()->with('success', 'Permohonan berhasil disimpan. Simpan no traking permohonan anda: ' . $permohonan->tracking_code);
+    }
+
+    public function cariPermohonan(Request $request)
+    {
+        $lampiran = $request->input('lampiran');
+        $permohonan = PermohonanInformasi::where('lampiran', $lampiran)
+            ->orderBy('created_at', 'desc')
+            ->first();
+    
+        if ($permohonan) {
+            return back()->with('success', 'Data Permohonan '.$permohonan->nama_pemohon.' telah ' .$permohonan->status_permohonan);
+        } else {
+            return back()->with('success', 'Data permohonan tidak ditemukan.');
+        }
     }
 }
