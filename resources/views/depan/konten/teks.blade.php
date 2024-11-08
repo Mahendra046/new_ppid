@@ -4,10 +4,10 @@
         style="background-image: url('../../public/Up/assets/img/balikpapan-view.jpg');">
         <div class="container position-relative d-flex flex-column" data-aos="fade">
 
-            <h2>Konten</h2>
+            <h2>{{$konten->judul}}</h2>
             <ol>
                 <li><a href="{{ url('beranda') }}">Beranda</a></li>
-                <li>Konten Detail</li>
+                <li>{{$konten->judul}}</li>
             </ol>
 
         </div>
@@ -23,20 +23,24 @@
 
                     <article class="blog-details">
 
+                        <style>
+                            .title {
+                                text-transform: uppercase !important;
+                                text-align: center;
+                            }
+                        </style>
+                        
                         <h2 class="title">
-                            <center>
-                                {{$konten->judul}}
-                            </center>
+                            {{$konten->judul}}
                         </h2>
-
                         <div class="content">
-                            <p>{!!nl2br( $konten->deskripsi)!!}</p>
+                                <p>{!! $konten->deskripsi !!}</p>
                         </div><!-- End post content -->
 
                         <div class="meta-bottom">
                             <i class="bi bi-folder"></i>
                             <ul class="cats">
-                                <li><a href="{{url('#')}}">Konten</a></li>
+                                <li><a href="{{ url('#') }}">Konten</a></li>
                             </ul>
                         </div><!-- End meta bottom -->
 
@@ -44,7 +48,6 @@
 
                 </div>
             </div>
-
         </div>
     </section><!-- End Blog Details Section -->
 </x-depan>

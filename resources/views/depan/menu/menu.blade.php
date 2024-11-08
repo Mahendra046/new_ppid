@@ -24,9 +24,17 @@
                             <h3>{{ $item->judul }}</h3>
                         </a>
                         @foreach ($item->konten as $konten)
-                            <a href="{{ url('konten/' . $konten->jenis_file . '/' . $konten->id) }}">
-                                <h5>{{ $konten->judul }}</h5>
-                            </a>
+                            @if ($konten->jenis_file == 'url' && filter_var($konten->link_konten))
+                                <!-- Memeriksa apakah jenis file adalah URL dan valid -->
+                                <a href="{{  url("$konten->link_konten") }}" target="_blank">
+                                    <!-- Menambah target="_blank" untuk membuka di tab baru -->
+                                    <h5>{{ $konten->judul }}</h5>
+                                </a>
+                            @else
+                                <a href="{{ url('konten/' . $konten->jenis_file . '/' . $konten->id) }}">
+                                    <h5>{{ $konten->judul }}</h5>
+                                </a>
+                            @endif
                         @endforeach
                     </div><!-- End Info Item -->
                 @endforeach

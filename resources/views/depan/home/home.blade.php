@@ -222,8 +222,8 @@
                             <div class="stats-item d-flex align-items-center w-100 h-100">
                                 <i class="fas fa-whistle color-blue flex-shrink-0"></i>
                                 <div>
-                                    <h5>WHISLIBLOWER</h5>
-                                    <p>System</p>
+                                    <img src="{{ url('public') }}/Up/assets/img/layanan/lapor.png" alt=""
+                                    class="img-fluid" style="width: 100%; height: 100%; object-fit: cover;">
                                 </div>
                             </div>
                         </a>

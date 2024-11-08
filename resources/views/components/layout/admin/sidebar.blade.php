@@ -16,6 +16,7 @@
             <x-layout.sidebar.menu-item url="admin/konten-jpg" label="Konten JPG" icon="ti-image" />
             <x-layout.sidebar.menu-item url="admin/konten-pdf" label="Konten PDF" icon="ti-file" />
             <x-layout.sidebar.menu-item url="admin/konten-teks" label="Konten Teks" icon="ti-write" />
+            <x-layout.sidebar.menu-item url="admin/konten-url" label="Konten Eksternal" icon="ti-write" />
             <x-layout.sidebar.menu-item url="admin/permohonan-informasi" label="Permohonan" icon="ti-receipt" />
             <x-layout.sidebar.menu-item url="admin/permohonan-keberatan" label="Keberatan" icon="ti-receipt" />
             <x-layout.sidebar.menu-item url="admin/user" label="Pengaturan Pengguna" icon="ti-flickr" />

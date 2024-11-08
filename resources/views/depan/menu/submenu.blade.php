@@ -24,33 +24,35 @@
 
                             <div class="post-img position-relative overflow-hidden">
                                 @if ($item->jenis_file === 'pdf')
-                                    <!-- Tampilkan PDF dalam iframe -->
                                     <iframe src="{{ url("public/$item->file") }}" style="height:250px; width:100%;"
                                         frameborder="0"></iframe>
                                 @elseif ($item->jenis_file === 'teks')
-                                    <!-- Tampilkan teks langsung sebagai HTML -->
                                     <div class="text-content" style=" height:250px;">
                                         {!! nl2br($item->deskripsi) !!}
                                     </div>
                                 @else
-                                    <!-- Tampilkan gambar sebagai default -->
                                     <img src="{{ url("public/$item->file") }}"
                                         style="height:250px; width:100%; background-size: cover;" class="img-fluid"
                                         alt="">
                                 @endif
-                                {{-- <span class="post-date">{{ $item->tanggal }}</span> --}}
                             </div>
                             <div class="post-content d-flex flex-column">
                                 <h3 class="post-title">{{ $item->judul }}</h3>
                                 <hr>
-                                <a href="{{ url('konten/' . $item->jenis_file . '/' . $item->id) }}" class="readmore stretched-link"><span>Lihat
-                                        Selengkapnya</span><i class="bi bi-arrow-right"></i></a>
+                                @php
+                                    $linkUrl = filter_var($item->link_konten, FILTER_VALIDATE_URL)
+                                        ? $item->link_konten
+                                        : url('konten/' . $item->jenis_file . '/' . $item->id);
+                                @endphp
+                                <a href="{{ $linkUrl }}" class="readmore stretched-link"
+                                    target="{{ $item->url ? '_blank' : '_self' }}">
+                                    <span>Lihat Selengkapnya</span><i class="bi bi-arrow-right"></i>
+                                </a>
                             </div>
                         </div>
-                    </div><!-- End post list item -->
+                    </div>
                 @endforeach
-
-            </div><!-- End blog posts list -->
+            </div>
             <br><br>
 
         </div>

@@ -8,7 +8,8 @@
     }
 @endphp
 
-<header id="header" class="header d-flex align-items-center overlay-black bg-light" style="padding: 1rem 1rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+<header id="header" class="header d-flex align-items-center overlay-black bg-light"
+    style="padding: 1rem 1rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
         <a href="{{ url('beranda') }}" class="logo d-flex align-items-center">
@@ -19,34 +20,65 @@
         <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
         <nav id="navbar" class="navbar">
             <ul>
-                
+
             </ul>
             <ul>
                 <x-layout.depan.header.menu-item url="beranda" label="Beranda"
                     class="{{ checkRouteActive('beranda') }}" />
-                    @foreach($menu as $item)
+                {{-- @foreach ($menu as $item)
                     <li class="dropdown">
                         <a href="{{ url('menu/' . $item->id) }}"
                             class="text-dark {{ checkRouteActive('menu/' . $item->id) }}">
                             <span>{{ $item->judul }}</span>
                             <i class="bi bi-chevron-down dropdown-indicator"></i>
                         </a>
-                        
-                        @if($item->submenus->isNotEmpty())
+
+                        @if ($item->submenus->isNotEmpty())
                             <ul>
-                                @foreach($item->submenus as $submenu)
-                                    <x-layout.depan.header.menu-item 
-                                        :url="url('menu/' . $item->id . '/' . $submenu->id)" 
-                                        :label="$submenu->judul" 
+                                @foreach ($item->submenus as $submenu)
+                                    <x-layout.depan.header.menu-item :url="url('menu/' . $item->id . '/' . $submenu->id)" :label="$submenu->judul"
                                         class="{{ checkRouteActive('/' . $item->id . '/' . $submenu->id) }}" />
                                 @endforeach
                             </ul>
                         @endif
                     </li>
-                @endforeach
+                @endforeach --}}
+                @foreach ($menu as $item)
+                    <li class="dropdown">
+                        <a href="{{ url('menu/' . $item->id) }}"
+                            class="text-dark {{ checkRouteActive('menu/' . $item->id) }}">
+                            <span>{{ $item->judul }}</span>
+                            <i class="bi bi-chevron-down dropdown-indicator"></i>
+                        </a>
 
-                <x-layout.depan.header.menu-item url="kontak" label="Kontak"
-                class="{{ checkRouteActive('kontak') }}" />
+                        @if ($item->submenus->isNotEmpty())
+                            <ul>
+                                @foreach ($item->submenus as $submenu)
+                                    @php
+                                        $submenuUrl = filter_var($submenu->url, FILTER_VALIDATE_URL)
+                                            ? $submenu->url
+                                            : null;
+                                    @endphp
+
+                                    @if ($submenuUrl)
+                                        <!-- Menampilkan komponen jika URL valid -->
+                                        <x-layout.depan.header.menu-item :url="$submenuUrl" :label="$submenu->judul"
+                                            class="{{ checkRouteActive('/' . $item->id . '/' . $submenu->id) }}" />
+                                    @else
+                                        <!-- Menampilkan elemen default jika URL tidak valid -->
+                                        <li class="dropdown-item">
+                                            <a href="{{ url('menu/' . $item->id . '/' . $submenu->id) }}"
+                                                class="{{ checkRouteActive('/' . $item->id . '/' . $submenu->id) }}">
+                                                {{ $submenu->judul }}
+                                            </a>
+                                        </li>
+                                    @endif
+                                @endforeach
+                            </ul>
+                        @endif
+                    </li>
+                @endforeach
+                <x-layout.depan.header.menu-item url="#kontak" label="Kontak" class="" />
 
 
             </ul>

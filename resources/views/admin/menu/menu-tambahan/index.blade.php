@@ -132,8 +132,7 @@
                                                             <!-- URL Menu -->
                                                             <div class="mb-3">
                                                                 <label for="url" class="form-label">URL</label>
-                                                                <input type="text" class="form-control" id="url" name="url"
-                                                                    value="{{ $menu->url }}">
+                                                                <input type="text" class="form-control" id="url" name="url">
                                                                 <small class="form-text text-muted">Opsional. Jika kosong, gunakan URL
                                                                     default.</small>
                                                             </div>

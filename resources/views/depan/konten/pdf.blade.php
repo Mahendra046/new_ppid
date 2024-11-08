@@ -4,10 +4,10 @@
         style="background-image: url('../../public/Up/assets/img/balikpapan-view.jpg');">
         <div class="container position-relative d-flex flex-column" data-aos="fade">
 
-            <h2>Konten</h2>
+            <h2>{{$konten->judul}}</h2>
             <ol>
                 <li><a href="{{ url('beranda') }}">Beranda</a></li>
-                <li>Konten Detail</li>
+                <li>{{$konten->judul}}</li>
             </ol>
 
         </div>
@@ -23,12 +23,16 @@
 
                     <article class="blog-details">
 
+                        <style>
+                            .title {
+                                text-transform: uppercase !important;
+                                text-align: center;
+                            }
+                        </style>
+                        
                         <h2 class="title">
-                            <center>
-                                {{$konten->judul}}
-                            </center>
+                            {{$konten->judul}}
                         </h2>
-
                         <div class="content">
                             <iframe src="{{ url("public/$konten->file") }}" frameborder="0" style="width: 100%; height: 800px;"></iframe>
                         </div><!-- End post content -->

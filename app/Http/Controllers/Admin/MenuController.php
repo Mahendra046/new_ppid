@@ -34,7 +34,7 @@ class MenuController extends Controller
     {
         $menu->judul = Request('judul');
         $menu->url = Request('url');
-        return $menu;
+        $menu->save();
         return back()->with('success','menu berhasiil diperbarui');
     }
 

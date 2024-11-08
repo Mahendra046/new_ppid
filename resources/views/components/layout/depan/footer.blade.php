@@ -10,7 +10,7 @@
                             referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div><!-- End footer links column-->
 
-                <div class="col-lg-4 col-md-6 footer-links">
+                <div id="kontak" class="col-lg-4 col-md-6 footer-links">
                     <h4>Kontak Kami</h4>
                     <p>
                         Pemerintah Kota Balikpapan <br>

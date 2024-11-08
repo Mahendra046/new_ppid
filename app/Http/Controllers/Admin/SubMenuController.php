@@ -31,10 +31,10 @@ class SubMenuController extends Controller
     {
         $menu->level = '1';
         $menu->judul = Request('judul');
-        $menu->url = Request('url');
+        $menu->url = '';
         $menu->id_induk = Request('id_induk');
-        return $menu;
-        return redirect()->route('menu.index')->with('success', 'Menu berhasil diperbarui');
+        $menu->update();
+        return back()->with('success', 'Menu berhasil diperbarui');
     }
 
     public function destroy($id)
